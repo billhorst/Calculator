@@ -1,0 +1,7 @@
+.numberField {
+	height: 30px;
+	width: 270px;
+	border: solid black 1px;
+	font-size: 25px;
+	text-align: right;
+}
