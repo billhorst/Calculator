@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Bill Horst</title>
+	<title>Calculator</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
 	<script src="app.js"></script>
     <!--<script src="https://cdn.jsdelivr.net/lodash/4.12.0/lodash.min.js"></script>
@@ -15,29 +15,105 @@
 
 	<div ng-controller="Ctrl">
 
-		<div class="numberField">{{currentNumber}}</div>
+		<div class="application">
 
-		<button ng-click="input(1)">1</button>
-		<button ng-click="input(2)">2</button>
-		<button ng-click="input(3)">3</button>
-		<button ng-click="input(4)">4</button>
-		<button ng-click="input(5)">5</button>
-		<button ng-click="input(6)">6</button>
-		<button ng-click="input(7)">7</button>
-		<button ng-click="input(8)">8</button>
-		<button ng-click="input(9)">9</button>
-		<button ng-click="input(0)">0</button>
-		<br />
-		<br />
-		<button ng-click="plus()">+</button>
-		<button ng-click="minus()">-</button>
-		<button ng-click="times()">x</button>
-		<button ng-click="divBy()">/</button>
-		<button ng-click="equals()">=</button>
+			<div class="calcBody">
 
+				<div class="calcInside">
 
+					<div class="numberField">{{currentNumber}}</div>
+
+					<div class="numRow">
+						<button ng-click="input(7)" class="numOpButton">7</button>
+						<button ng-click="input(8)" class="numOpButton">8</button>
+						<button ng-click="input(9)" class="numOpButton">9</button>
+						<button ng-click="divBy()" class="numOpButton">/</button>
+						<button ng-click="clear()" class="numOpButton">c</button>
+					</div>
+					<div class="numRow">
+						<button ng-click="input(4)" class="numOpButton">4</button>
+						<button ng-click="input(5)" class="numOpButton">5</button>
+						<button ng-click="input(6)" class="numOpButton">6</button>
+						<button ng-click="times()" class="numOpButton">x</button>
+						<button ng-click="posNeg()" class="numOpButton">&plusmn</button>
+					</div>
+					<div class="numRow">
+						<button ng-click="input(1)" class="numOpButton">1</button>
+						<button ng-click="input(2)" class="numOpButton">2</button>
+						<button ng-click="input(3)" class="numOpButton">3</button>
+						<button ng-click="minus()" class="numOpButton">-</button>
+						<button ng-click="equals()" class="equalsButton">=</button>
+					</div>
+					<div class="numRow">
+						<button ng-click="input(0)" class="zeroButton">0</button>
+						<button ng-click="inputDecimal()" class="numOpButton">.</button>
+						<button ng-click="plus()" class="numOpButton">+</button>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="historyBox">
+				<label>
+					<span>Controls how many previous expressions you want to see:</span>
+					<input type="number" step="1" ng-model="expressionLimit" class="expressionLimitInput">
+					<hr />
+				</label>
+				<button class="clearHistoryButton" ng-click="clearHistory()">Clear history</button>
+				<h2>{{toEvaluate}}</h2>
+				<div class="expressionDisplay" ng-repeat="expression in expressionArray.slice().reverse() | limitTo:expressionLimit track by $index">{{expression}}</div>
+			</div>
+		</div>
+
+		<h4>{{errorMessage}}</h4>
 	</div>
 
 </body>
 
 </html>
+
+<!-- 
+
+extra functionality:
+fizz buzz for the number
+find square root
+say if number is prime
+if number is composite, find all divisors
+make so you can type in numbers on keyboard and it'll render on screen
+
+-->
+
+
+
+<!-- 			<button ng-click="input(7)" class="numOpButton">7</button>
+			<button ng-click="input(8)" class="numOpButton">8</button>
+			<button ng-click="input(9)" class="numOpButton">9</button>
+			<button ng-click="divBy()" class="numOpButton">/</button>
+			<button ng-click="clear()" class="numOpButton">clear</button>
+
+			<button ng-click="input(4)" class="numOpButton">4</button>
+			<button ng-click="input(5)" class="numOpButton">5</button>
+			<button ng-click="input(6)" class="numOpButton">6</button>
+			<button ng-click="times()" class="numOpButton">x</button>
+
+			<button ng-click="input(1)" class="numOpButton">1</button>
+			<button ng-click="input(2)" class="numOpButton">2</button>
+			<button ng-click="input(3)" class="numOpButton">3</button>
+			<button ng-click="minus()" class="numOpButton">-</button>
+
+			<button ng-click="input(0)" class="zeroButton">0</button>
+			<button ng-click="inputDecimal()" class="numOpButton">.</button>
+			<button ng-click="plus()" class="numOpButton">+</button> -->
+<!-- 
+			<br />
+			<br />
+
+			<button ng-click="equals()">=</button>
+
+			<div>{{errorMessage}}</div>
+			<h1>{{currentExpression}}</h1>
+
+			<button ng-click="yesPIMDAS()">Mathematical Expression Mode (1 + 3 x 3 = 10) (uses PIMDAS)</button>
+			<button ng-click="noPIMDAS()">Linear Expression Mode (1 + 3 * 3 = 12) (doesn't use PIMDAS)</button>
+			<h3>{{usingPIMDAS}}</h3> -->

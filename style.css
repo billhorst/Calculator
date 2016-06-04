@@ -1,7 +1,125 @@
-.numberField {
-	height: 30px;
-	width: 270px;
-	border: solid black 1px;
-	font-size: 25px;
-	text-align: right;
+.application {
+	width: 800px;
+	margin: auto;
 }
+
+.historyBox, .calcBody {
+	display: inline-block;
+}
+
+.calcBody {
+	height: 445px;
+	width: 400px;
+	background-color: white;
+	padding-top: 20px;
+	border-radius: 10px;
+	background: -webkit-radial-gradient(circle, red, yellow, green);
+	background: -o-radial-gradient(circle, red, yellow, green);
+	background: -moz-radial-gradient(circle, red, yellow, green);
+	background: radial-gradient(circle, #BA0B0B, #BA0BAE, #0B11BA, #0BBAB7, #0BBA1A, #A9BA0B);
+}
+
+.calcInside {
+	height: 95%;
+	width: 95%;
+	margin: auto;
+	/*background: #D6D2D5;*/
+
+}
+
+.numberField {
+	height: 50px;
+	width: 98%;
+	border: solid black 2px;
+	font-size: 26pt;
+	text-align: right;
+	background-color: white;
+	padding-right: 5px;
+	padding-top: 7px;
+
+}
+
+.leftSide {
+	height: 100%;
+	width: 75
+}
+
+.numRow {
+	margin-top: 20px;
+	padding-left: 7px;
+}
+
+
+/*------------------------
+HISTORY BOX
+------------------------*/
+
+.historyBox {
+	min-height: 300px;
+	width: 300px;
+	float: left;
+	border: black solid 1px;
+	margin: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border-radius: 10px;
+}
+
+.historyBox span {
+	font-size: 15pt;
+	text-align: center;
+}
+
+.expressionDisplay {
+	font-size: 18pt;
+	border: solid black 1px;
+	margin-bottom: 3px;
+}
+
+.expressionLimitInput {
+	width: 50px;
+}
+
+
+
+
+
+/*----------------------------------
+BUTTONS
+----------------------------------*/
+
+.numOpButton {
+	height: 70px;
+	width: 70px;
+	text-align: center;
+	font-size: 18pt;
+	cursor: pointer;
+}
+
+.zeroButton {
+	height: 70px;
+	width: 144px;
+	text-align: center;
+	font-size: 18pt;
+	cursor: pointer;
+}
+
+.equalsButton {
+	height: 160px;
+	width: 70px;
+	margin-right: 7px;
+	float: right;
+	cursor: pointer;
+}
+
+.clearHistoryButton {
+	width: 100px;
+	margin-top: 10px;
+	background-color: #36C742;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+/*---------------------------------
+CALCULATOR FUNCTIONS
+---------------------------------*/
